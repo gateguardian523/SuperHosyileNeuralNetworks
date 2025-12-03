@@ -1,6 +1,8 @@
 package cn.qiuye.shnn;
 
+import dev.shadowsoffire.placebo.loot.LootSystem;
 import dev.shadowsoffire.placebo.network.MessageHelper;
+import dev.shadowsoffire.placebo.tabs.TabFillingRegistry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -41,7 +43,13 @@ public class SHNN {
 
     @SubscribeEvent
     public void setup(FMLCommonSetupEvent e) {
-        e.enqueueWork(() -> {});
+        e.enqueueWork(() -> {
+            LootSystem.defaultBlockTable(SH.Blocks.ULTIMATE_LOOT_FABRICATOR_V1.get());
+            LootSystem.defaultBlockTable(SH.Blocks.ULTIMATE_LOOT_FABRICATOR_V2.get());
+            LootSystem.defaultBlockTable(SH.Blocks.ULTIMATE_LOOT_FABRICATOR_V3.get());
+            LootSystem.defaultBlockTable(SH.Blocks.ULTIMATE_LOOT_FABRICATOR_V4.get());
+            TabFillingRegistry.register(SH.Tabs.SHNN_TAB_KEY, SH.Items.ULTIMATE_LOOT_FABRICATOR_V1, SH.Items.ULTIMATE_LOOT_FABRICATOR_V2, SH.Items.ULTIMATE_LOOT_FABRICATOR_V3, SH.Items.ULTIMATE_LOOT_FABRICATOR_V4);
+        });
     }
 
     static {
