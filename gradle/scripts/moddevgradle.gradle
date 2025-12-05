@@ -1,9 +1,9 @@
 ext.isJetbrainsRuntime = System.getProperty('java.vm.vendor').contains('JetBrains')
 
 mixin {
-    var refmap = add sourceSets.main, "shnn.refmap.json"
+    var refmap = add sourceSets.main, "superhnn.refmap.json"
     slimJar.from refmap
-    config "shnn.mixins.json"
+    config "superhnn.mixins.json"
 }
 
 // we have to force LWJGL version 3.3.2, because RenderNurse requires Java 21, and LWJGL 3.3.1 cannot run on Java 21.
@@ -85,7 +85,7 @@ legacyForge {
 
         configureEach {
             systemProperty 'forge.logging.markers', 'REGISTRIES'
-            jvmArgument('-ea:cn.qiuye.shnn...')
+            jvmArgument('-ea:cn.qiuye.superhnn...')
             logLevel = org.slf4j.event.Level.INFO
         }
     }
