@@ -5,25 +5,30 @@ import dev.shadowsoffire.hostilenetworks.Hostile;
 import dev.shadowsoffire.hostilenetworks.data.DataModel;
 import dev.shadowsoffire.hostilenetworks.item.DataModelItem;
 import dev.shadowsoffire.hostilenetworks.item.MobPredictionItem;
+import dev.shadowsoffire.placebo.cap.InternalItemHandler;
 import dev.shadowsoffire.placebo.menu.BlockEntityMenu;
 import dev.shadowsoffire.placebo.menu.FilteredSlot;
 import dev.shadowsoffire.placebo.reload.DynamicHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.Block;
 
-public class SuperLootFabContainer extends BlockEntityMenu<SuperLootFabTileEntity> {
+public class SuperLootFabMenu extends BlockEntityMenu<SuperLootFabTileEntity> {
 
     private final Block block;
+    private final ContainerLevelAccess access;
 
-    public SuperLootFabContainer(int id, Inventory pInv, BlockPos pos, MenuType<?> type, Block block) {
+    public SuperLootFabMenu(int id, Inventory pInv, BlockPos pos, MenuType<?> type, Block block) {
         super(type, id, pInv, pos);
 
         this.block = block;
+        this.access = ContainerLevelAccess.create(level, pos);
 
-        SuperLootFabTileEntity.FabItemHandler inv = this.tile.getInventory();
+        InternalItemHandler inv = this.tile.getInventory();
         this.addSlot(new FilteredSlot(inv, 0, 85, 99, (s) -> s.getItem() == Hostile.Items.PREDICTION.get()));
 
         for (int y = 0; y < 6; ++y) {
@@ -41,7 +46,7 @@ public class SuperLootFabContainer extends BlockEntityMenu<SuperLootFabTileEntit
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return pPlayer.level().getBlockState(this.pos).getBlock() == block;
+        return AbstractContainerMenu.stillValid(access, pPlayer, block);
     }
 
     @Override

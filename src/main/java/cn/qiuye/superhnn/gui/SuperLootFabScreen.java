@@ -25,18 +25,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class SuperLootFabScreen extends PlaceboContainerScreen<SuperLootFabContainer> {
+public class SuperLootFabScreen extends PlaceboContainerScreen<SuperLootFabMenu> {
 
     private static final int WIDTH = 254;
     private static final int HEIGHT = 214;
-    private static final ResourceLocation BASE = SuperHostileNetworks.id("textures/gui/super_loot_fabricator_plus.png");
+    private static final ResourceLocation BASE = SuperHostileNetworks.id("textures/gui/super_loot_fabricator.png");
     private static final ResourceLocation PLAYER = SuperHostileNetworks.id("textures/gui/inventory.png");
     private DynamicHolder<DataModel> model;
     private int currentPage;
     private ImageButton btnLeft;
     private ImageButton btnRight;
 
-    public SuperLootFabScreen(SuperLootFabContainer pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public SuperLootFabScreen(SuperLootFabMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.model = DataModelRegistry.INSTANCE.holder(ResourceLocation.tryBuild("empty", "empty"));
         this.currentPage = 0;

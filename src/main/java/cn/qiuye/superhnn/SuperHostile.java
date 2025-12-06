@@ -2,7 +2,7 @@ package cn.qiuye.superhnn;
 
 import cn.qiuye.superhnn.api.Version;
 import cn.qiuye.superhnn.block.SuperLootFabBlock;
-import cn.qiuye.superhnn.gui.SuperLootFabContainer;
+import cn.qiuye.superhnn.gui.SuperLootFabMenu;
 import cn.qiuye.superhnn.tile.SuperLootFabTileEntity;
 import com.google.common.collect.ImmutableSet;
 import dev.shadowsoffire.placebo.block_entity.TickingBlockEntityType;
@@ -65,7 +65,9 @@ public class SuperHostile {
     public class TileEntities {
 
         private void bootstrap() {
-        }        public final RegistryObject<BlockEntityType<SuperLootFabTileEntity>> ULTIMATE_LOOT_FABRICATOR_V1 = SuperHostile.R.blockEntity("super_loot_fabricator_v1", () -> new TickingBlockEntityType<>((pos, state) -> new SuperLootFabTileEntity(pos, state, TileEntities.ULTIMATE_LOOT_FABRICATOR_V1.get(), Version.V5), ImmutableSet.of(Blocks.ULTIMATE_LOOT_FABRICATOR_V1.get()), false, true));
+        }
+
+        public final RegistryObject<BlockEntityType<SuperLootFabTileEntity>> ULTIMATE_LOOT_FABRICATOR_V1 = SuperHostile.R.blockEntity("super_loot_fabricator_v1", () -> new TickingBlockEntityType<>((pos, state) -> new SuperLootFabTileEntity(pos, state, TileEntities.ULTIMATE_LOOT_FABRICATOR_V1.get(), Version.V5), ImmutableSet.of(Blocks.ULTIMATE_LOOT_FABRICATOR_V1.get()), false, true));
         public final RegistryObject<BlockEntityType<SuperLootFabTileEntity>> ULTIMATE_LOOT_FABRICATOR_V2 = SuperHostile.R.blockEntity("super_loot_fabricator_v2", () -> new TickingBlockEntityType<>((pos, state) -> new SuperLootFabTileEntity(pos, state, TileEntities.ULTIMATE_LOOT_FABRICATOR_V2.get(), Version.V6), ImmutableSet.of(Blocks.ULTIMATE_LOOT_FABRICATOR_V2.get()), false, true));
         public final RegistryObject<BlockEntityType<SuperLootFabTileEntity>> ULTIMATE_LOOT_FABRICATOR_V3 = SuperHostile.R.blockEntity("super_loot_fabricator_v3", () -> new TickingBlockEntityType<>((pos, state) -> new SuperLootFabTileEntity(pos, state, TileEntities.ULTIMATE_LOOT_FABRICATOR_V3.get(), Version.V7), ImmutableSet.of(Blocks.ULTIMATE_LOOT_FABRICATOR_V3.get()), false, true));
         public final RegistryObject<BlockEntityType<SuperLootFabTileEntity>> ULTIMATE_LOOT_FABRICATOR_V4 = SuperHostile.R.blockEntity("super_loot_fabricator_v4", () -> new TickingBlockEntityType<>((pos, state) -> new SuperLootFabTileEntity(pos, state, TileEntities.ULTIMATE_LOOT_FABRICATOR_V4.get(), Version.VMAX), ImmutableSet.of(Blocks.ULTIMATE_LOOT_FABRICATOR_V4.get()), false, true));
@@ -77,10 +79,12 @@ public class SuperHostile {
     public class Containers {
 
         private void bootstrap() {
-        }        public final RegistryObject<MenuType<SuperLootFabContainer>> ULTIMATE_LOOT_FABRICATOR_V1 = SuperHostile.R.menu("super_loot_fabricator_v1", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabContainer(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V1.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V1.get())));
-        public final RegistryObject<MenuType<SuperLootFabContainer>> ULTIMATE_LOOT_FABRICATOR_V2 = SuperHostile.R.menu("super_loot_fabricator_v2", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabContainer(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V2.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V2.get())));
-        public final RegistryObject<MenuType<SuperLootFabContainer>> ULTIMATE_LOOT_FABRICATOR_V3 = SuperHostile.R.menu("super_loot_fabricator_v3", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabContainer(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V3.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V3.get())));
-        public final RegistryObject<MenuType<SuperLootFabContainer>> ULTIMATE_LOOT_FABRICATOR_V4 = SuperHostile.R.menu("super_loot_fabricator_v4", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabContainer(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V4.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V4.get())));
+        }
+
+        public final RegistryObject<MenuType<SuperLootFabMenu>> ULTIMATE_LOOT_FABRICATOR_V1 = SuperHostile.R.menu("super_loot_fabricator_v1", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabMenu(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V1.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V1.get())));
+        public final RegistryObject<MenuType<SuperLootFabMenu>> ULTIMATE_LOOT_FABRICATOR_V2 = SuperHostile.R.menu("super_loot_fabricator_v2", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabMenu(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V2.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V2.get())));
+        public final RegistryObject<MenuType<SuperLootFabMenu>> ULTIMATE_LOOT_FABRICATOR_V3 = SuperHostile.R.menu("super_loot_fabricator_v3", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabMenu(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V3.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V3.get())));
+        public final RegistryObject<MenuType<SuperLootFabMenu>> ULTIMATE_LOOT_FABRICATOR_V4 = SuperHostile.R.menu("super_loot_fabricator_v4", () -> MenuUtil.posType((id, pInv, pos) -> new SuperLootFabMenu(id, pInv, pos, Containers.ULTIMATE_LOOT_FABRICATOR_V4.get(), Blocks.ULTIMATE_LOOT_FABRICATOR_V4.get())));
 
 
     }

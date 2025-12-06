@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 public class SuperHostileNetworks {
 
     public static final String MOD_ID = "superhnn";
-    public static final String MOD_NAME = "Super Hosyile Neural Networks";
+    public static final String MOD_NAME = "Super Hostile Neural Networks";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
     public static final SimpleChannel CHANNEL = NetworkRegistry.ChannelBuilder.named(id(MOD_ID))
             .clientAcceptedVersions((s) -> true)

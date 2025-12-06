@@ -1,7 +1,7 @@
 package cn.qiuye.superhnn.block;
 
 import cn.qiuye.superhnn.api.Version;
-import cn.qiuye.superhnn.gui.SuperLootFabContainer;
+import cn.qiuye.superhnn.gui.SuperLootFabMenu;
 import cn.qiuye.superhnn.tile.SuperLootFabTileEntity;
 import dev.shadowsoffire.placebo.block_entity.TickingEntityBlock;
 import dev.shadowsoffire.placebo.menu.MenuUtil;
@@ -59,12 +59,12 @@ public class SuperLootFabBlock extends HorizontalDirectionalBlock implements Tic
     @SuppressWarnings("deprecation")
     public InteractionResult use(BlockState state, Level level, BlockPos pos,
                                  Player player, InteractionHand hand, BlockHitResult hit) {
-        return MenuUtil.openGui(player, pos, (id, pInv, posBlock) -> new SuperLootFabContainer(id, pInv, posBlock, type.get(), this));
+        return MenuUtil.openGui(player, pos, (id, pInv, posBlock) -> new SuperLootFabMenu(id, pInv, posBlock, type.get(), this));
     }
 
     @Override
     @SuppressWarnings("deprecation")
     public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
-        return new SimplerMenuProvider<>(pLevel, pPos, (id, pInv, posBlock) -> new SuperLootFabContainer(id, pInv, posBlock, type.get(), this));
+        return new SimplerMenuProvider<>(pLevel, pPos, (id, pInv, posBlock) -> new SuperLootFabMenu(id, pInv, posBlock, type.get(), this));
     }
 }
