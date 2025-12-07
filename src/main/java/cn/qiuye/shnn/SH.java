@@ -9,6 +9,9 @@ import dev.shadowsoffire.placebo.block_entity.TickingBlockEntityType;
 import dev.shadowsoffire.placebo.menu.MenuUtil;
 import dev.shadowsoffire.placebo.registry.DeferredHelper;
 
+import net.lmor.extrahnn.ExtraHostileConfig;
+import net.lmor.extrahnn.item.UpgradeMachine;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -52,10 +55,12 @@ public class SH {
 
     public static class Items {
 
-        public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V1 = SH.R.item("super_loot_fabricator_v1", () -> { return new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V1.get(), new Item.Properties()); });;
-        public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V2 = SH.R.item("super_loot_fabricator_v2", () -> { return new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V2.get(), new Item.Properties()); });;
-        public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V3 = SH.R.item("super_loot_fabricator_v3", () -> { return new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V3.get(), new Item.Properties()); });;
-        public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V4 = SH.R.item("super_loot_fabricator_v4", () -> { return new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V4.get(), new Item.Properties()); });;
+        public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V1 = SH.R.item("super_loot_fabricator_v1", () -> new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V1.get(), new Item.Properties()));
+	    public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V2 = SH.R.item("super_loot_fabricator_v2", () -> new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V2.get(), new Item.Properties()));
+	    public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V3 = SH.R.item("super_loot_fabricator_v3", () -> new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V3.get(), new Item.Properties()));
+	    public static final RegistryObject<BlockItem> ULTIMATE_LOOT_FABRICATOR_V4 = SH.R.item("super_loot_fabricator_v4", () -> new BlockItem(Blocks.ULTIMATE_LOOT_FABRICATOR_V4.get(), new Item.Properties()));
+	    public static final RegistryObject<UpgradeMachine> UPGRADE_SPEED = SH.R.item("upgrade_speed", () -> new UpgradeMachine(new Item.Properties(), Component.translatable("shnn.info.item_tooltip.upgrade_speed", SHNNConfig.upgradeSpeed).withStyle(ChatFormatting.GRAY)));
+        public static final RegistryObject<UpgradeMachine> UPGRADE_EXCESSIVE = SH.R.item("upgrade_excessive", () -> new UpgradeMachine(new Item.Properties(), Component.translatable("shnn.info.item_tooltip.upgrade_excessive", SHNNConfig.upgradeSpeed).withStyle(ChatFormatting.GRAY)));
 
         private static void bootstrap() {}
     }
